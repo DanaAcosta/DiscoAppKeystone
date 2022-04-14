@@ -3,33 +3,53 @@
 <head>
     <title>Hello Azure - Python Quickstart</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link rel="icon"href="{% static 'Logo_DiscoApp_ft.png' %}">
+    <link rel="icon"href="{% static 'images/Logo_DiscoApp.png' %}">
 </head>
+
 <html>
-   <body>
+   <body class="px-0 py-4 my-2 bg-dark text-center text-white">
      <main>
-        <div class="px-4 py-3 my-2 text-center">
-            <img class="d-block mx-auto mb-4" src="static/Logo_DiscoApp_ft.png"width="200" height="200"/>
-            <h1 class="display-6 fw-bold text-primary">Bienvenido a Discoapp</h1>            
+       <!-- Parte del logo -->
+          <div style='height: 550px; width: 485px; border: 0px; float: left; margin: 1em 0em 10em 10em; text-align: left;'>
+            <div class="px-0 py-5 my-2 text-center">
+              <img class="d-block mx-auto mb-4" src="static/images/Logo_DiscoApp.png"width="500" height="500"/>       
+            </div>
           </div>
+        <!-- Parte de logos redes sociales -->
+        <div style='height: 150px; width: 100px; border: 0px; float: left; margin: 7em 0em 10em 1em; text-align: left;'>
+          <div class="px-0 py-5 my-2 text-center">
+            <a href="https://www.instagram.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_ig.png"width="70" height="70"/></a>     
+            <br>
+            <a href="https://www.facebook.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_fb.png"width="70" height="70"/></a>     
+            <br>
+            <a href="https://www.twitter.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_tw.png"width="70" height="70"/></a>     
+          </div>
+        </div>
+        <!-- Parte del login -->
         <form method="post" action="hello">
             {% csrf_token %}
-            <div class="col-md-6 mx-auto text-center">
-                <label for="name" class="form-label fw-bold fs-5">Inicia Sesion</label>
+          <div style='height: 350px; width: 350px; border: 0px; float: left; margin: 10em 0em 3em 12em; text-align: center;'>
+            <div class="px-0 py-10 my-2 text-center">
+              <h1 class="display-6 fw-bold text-white">¡Bienvenido a Discoapp!</h1> <br>
+              <label for="name" class="form-label fw-bold fs-5">Inicia Sesion</label> <br>
 
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
-                  Correo:
-                    <input type="text" class="form-control" id="name" name="name" style="max-width: 256px;">
-                  </div>   
-                  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
-                  Contrasena:
-                    <input type="text" class="form-control" id="name" name="name" style="max-width: 256px;">
-                  </div>         
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
-                  <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Ingresar</button>
-                </div>            
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-left align-items-center my-1">
+                Correo:
+                <input type="text" class="form-control" id="name" name="name" style="max-width: 287px;">
+              </div>   
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-left align-items-center my-1">
+                Contraseña:
+                <input type="text" class="form-control" id="name" name="name" style="max-width: 256px;">
+              </div>
+              <br>        
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
+                <button type="submit" class="btn btn-outline-new btn-lg px-4 gap-3">Ingresar</button>
+              </div>            
             </div>
+          </div>
         </form>
      </main>      
    </body>
 </html>
+
+

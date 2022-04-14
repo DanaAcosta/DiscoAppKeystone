@@ -1,7 +1,7 @@
 {% load static %}
 <!doctype html>
 <head>
-  <img src="static/images/banner.png" width="1600" height="300">
+  <img src="static/images/banner.png" width="1520" height="250">
     <title>Bienvenido</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="icon"href="{% static 'Logo_DiscoApp_ft.png' %}">
@@ -9,15 +9,15 @@
 </head>
 
 <html>
-   <body>
+   <body class = 'bg-dark text-white'>
      <main>
-        <div class="px-4 py-3 my-2 text-center">
+        <div class="px-4 py-5 my-2 text-center">
             <h1 class="display-6 fw-bold">En esta página podrás subir, verificar y actualizar datos. </h1>
             <p class="fs-5">
               A continuación, encontraras una explicación de cada uno.
             </p>
         <!-- Descripciones y botones -->
-        <div style='height: 550px; width: 220px; border: 0px; float: left; margin: 1em 0em 3em 20em; text-align: left;'>
+        <div style='height: 550px; width: 320px; border: 0px; float: left; margin: 3em 0em 3em 10em; text-align: left;'>
           <p class="fs-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -26,10 +26,10 @@
             Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. 
             Amet purus gravida quis blandit turpis. 
           </p>
-          <a href="{% url 'index' %}" class="btn btn-primary btn-lg px-4 gap-1">Subir Datos</a>
+          <a href="{% url 'index' %}" class="btn btn-outline-new btn-lg px-4 gap-1">Subir Datos</a>
         </div>
 
-        <div style='height: 550px; width: 220px; border: 0px; float: left; text-align: center;margin: 1em 0em 3em 7em'>
+        <div style='height: 550px; width: 320px; border: 0px; float: left; text-align: center;margin: 3em 0em 3em 7em'>
           <p class="fs-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -38,10 +38,10 @@
             Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. 
             Amet purus gravida quis blandit turpis. 
           </p>
-          <a href="{% url 'index' %}" class="btn btn-primary btn-lg px-4 gap-2">Verificar Datos</a>
+          <a href="{% url 'index' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Verificar Datos</a>
         </div>
 
-        <div style='height: 550px; width: 220px; border: 0px; float: left;margin: 1em 0em 3em 7em; text-align: right;'>
+        <div style='height: 550px; width: 320px; border: 0px; float: left;margin: 3em 0em 3em 7em; text-align: right;'>
           <p class="fs-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -50,7 +50,7 @@
             Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. 
             Amet purus gravida quis blandit turpis. 
          </p>
-          <a href="{% url 'index' %}" class="btn btn-primary btn-lg px-4 gap-3">Actualizar Datos</a>
+          <a href="{% url 'update' %}" class="btn btn-outline-new btn-lg px-4 gap-3">Actualizar Datos</a>
         </div>
         </div>
      </main>      

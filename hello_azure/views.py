@@ -6,6 +6,25 @@ def index(request):
     print('Request for index page received')
     return render(request, 'hello_azure/index.html')
 
+def update(request): #Esto es lo que agregamos
+    print('Request for update page received')
+    return render(request, 'hello_azure/update.html')
+
+@csrf_exempt
+def upload(request):
+    if request.method == 'POST':
+        name = request.POST.get('filename')
+        
+        if name is None or name == '':
+            print("File not found")
+            return redirect('update')
+        else:
+            print("Filename found=%s" % name)
+            context = {'filename': name }
+            return render(request, 'hello_azure/hello.html', context)
+    else:
+        return redirect('update')
+
 @csrf_exempt
 def hello(request):
     if request.method == 'POST':
