@@ -1,0 +1,55 @@
+{% load static %}
+<!doctype html>
+<head>
+  <img src="static/images/banner.png" width="1520" height="250">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="icon"href="{% static 'Logo_DiscoApp_ft.png' %}">
+    
+</head>
+
+<html>
+  <body class = 'bg-dark text-white'>
+     <main>
+        <div class="px-4 py-3 my-2 text-center">
+            <h1 class="display-6 fw-bold">Subir datos.</h1>
+            <p class="fs-5">
+              En esta página puedes subir grandes volúmenes de datos en tres sencillos pasos &#128516;. Sigue las instrucciones:
+            </p>
+          <!-- Instrucciones -->
+          <!-- Paso 1 -->
+          <div style='height: 230px; width: 320px; border: 0px; float: left; margin: 5em 0em 3em 10em; text-align: left;'>
+            <p class="fs-5">
+              1. Descarga la plantilla haciendo click a continuación: 
+            </p>
+            <a href="static/Plantilla.csv" class="btn btn-outline-light btn-lg px-5 gap-3" download="plantilla.csv">Descargar plantilla excel</a>
+          </div>
+          <!-- Paso 2 -->
+          <div style='height: 230px; width: 320px; border: 0px; float: left; text-align: left ;margin: 5em 0em 3em 7em'>
+            <p class="fs-5">
+              2. Abre la plantilla e ingresa los datos que te solicita.
+              <ul style="font-size:15px">
+                <li>Producto: nombre del producto.</li>
+                <li>Precio: Valor del producto asociado.</li>
+              </ul>
+            </p><p class="fs-5">Luego, guarda la plantilla con el nombre que quieras en formato .csv</p>
+          </div>
+          <!-- Paso 3 -->
+          <div style='height: 230px; width: 320px; border: 0px; float: left;margin: 5em 0em 3em 7em; text-align: left;'>
+            <p class="fs-5">
+              3. Selecciona la plantilla haciendo click aquí &#128071;</p>
+            <p class="fs-5">
+              <form method="post" action="up">
+                  {% csrf_token %}
+                  <input type="file" class="form-control" accept=".csv" name = "filename" style="max-width: 287px;"><br>
+                <p class="fs-5">
+                  Finalmente, haz click en subir archivos &#128073; 
+                  <button type="submit" class="btn btn-outline-light btn-sm px-4 gap-3">Subir archivos</button>
+                </p>
+              </form>
+            </p>
+          </div>
+        </div>
+      </main>      
+  </body>
+</html>

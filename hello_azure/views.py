@@ -10,6 +10,10 @@ def update(request): #Esto es lo que agregamos
     print('Request for update page received')
     return render(request, 'hello_azure/update.html')
 
+def up(request): #Esto es lo que agregamos
+    print('Request for upload page received')
+    return render(request, 'hello_azure/up.html')
+
 @csrf_exempt
 def upload(request):
     if request.method == 'POST':
