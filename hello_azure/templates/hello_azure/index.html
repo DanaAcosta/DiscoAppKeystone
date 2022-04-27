@@ -1,55 +1,113 @@
 {% load static %}
 <!doctype html>
 <head>
-    <title>Hello Azure - Python Quickstart</title>
+    <title>Bienvenido a DiscoApp</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="icon"href="{% static 'images/Logo_DiscoApp.png' %}">
-</head>
+</head
 
 <html>
-   <body class="px-0 py-4 my-2 bg-dark text-center text-white">
+   <body class="px-0 py-4 my-4 bg-dark text-center text-white">
+
+     <style>
+
+
+     h1 {
+       font-family: 'Lucida Handwriting',sans-serif;
+       text-align: center;
+      }
+
+
+     </style>
+
+
      <main>
        <!-- Parte del logo -->
           <div style='height: 550px; width: 485px; border: 0px; float: left; margin: 1em 0em 10em 10em; text-align: left;'>
             <div class="px-0 py-5 my-2 text-center">
-              <img class="d-block mx-auto mb-4" src="static/images/Logo_DiscoApp.png"width="500" height="500"/>       
+              <img class="d-block mx-auto mb-4" src="static/images/Logo_DiscoApp.png"width="500" height="500"/>
             </div>
           </div>
         <!-- Parte de logos redes sociales -->
         <div style='height: 150px; width: 100px; border: 0px; float: left; margin: 7em 0em 10em 1em; text-align: left;'>
           <div class="px-0 py-5 my-2 text-center">
-            <a href="https://www.instagram.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_ig.png"width="70" height="70"/></a>     
+            <a href="https://www.instagram.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_ig.png"width="70" height="70"/></a>
             <br>
-            <a href="https://www.facebook.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_fb.png"width="70" height="70"/></a>     
+            <a href="https://www.facebook.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_fb.png"width="70" height="70"/></a>
             <br>
-            <a href="https://www.twitter.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_tw.png"width="70" height="70"/></a>     
+            <a href="https://www.twitter.com/"><img class="d-block mx-auto mb-4" src="static/images/Logo_tw.png"width="70" height="70"/></a>
           </div>
         </div>
         <!-- Parte del login -->
         <form method="post" action="hello">
             {% csrf_token %}
+        <!--
           <div style='height: 350px; width: 350px; border: 0px; float: left; margin: 10em 0em 3em 12em; text-align: center;'>
             <div class="px-0 py-10 my-2 text-center">
-              <h1 class="display-6 fw-bold text-white">¡Bienvenido a Discoapp!</h1> <br>
-              <label for="name" class="form-label fw-bold fs-5">Inicia Sesion</label> <br>
+              <h1 class="display-6 fw-bold text-white">¡Bienvenido a DiscoApp!</h1> <br>
+              <label for="name" class="form-label fw-bold fs-5">Iniciar sesión</label> <br>
 
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-left align-items-center my-1">
-                Correo:
+                Correo electrónico:
                 <input type="text" class="form-control" id="name" name="name" style="max-width: 287px;">
-              </div>   
+              </div>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-left align-items-center my-1">
                 Contraseña:
                 <input type="text" class="form-control" id="name" name="name" style="max-width: 256px;">
               </div>
-              <br>        
+              <br>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
                 <button type="submit" class="btn btn-outline-new btn-lg px-4 gap-3">Ingresar</button>
-              </div>            
+              </div>
             </div>
-          </div>
+          </div>-->
+
+        <div style='height: 350px; width: 350px; border: 0px; float: left; margin: 10em 0em 3em 12em; text-align: center;'>
+          <div class="px-0 py-10 my-2 text-center">
+            <h1 class="display-7 fw-bold text-white">Bienvenido a DiscoApp</h1> <br>
+          <div class="w3-container w3-teal">
+                          <div class="row">
+                              <div class="col-md-9 mx-auto">
+                                  <div class="card card-body">
+                                <form id="submitForm" action="#" method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1">
+          <input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
+                             <div class="form-group required text-dark">
+                        <lSabel for="username"> Correo electrónico</lSabel>
+                       <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                         </div>
+                 <div class="form-group required">
+              <label class="d-flex flex-row align-items-center text-dark" for="password"> Contraseña
+                <small>
+               <a class="ml-auto border-link small-xl" href="#"> ¿Olvidaste tu contraseña? </a> </label> </small>
+          <input type="password" class="form-control" required="" id="password" name="password" value="">
+                 </div>
+               <div class="form-group mt-4 mb-4">
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
+             <label class="custom-control-label text-dark small" for="remember-me"> Recuérdame </label>
+                          </div>
+                        </div>
+                   <div class="form-group pt-1">
+                <button type="submit" class="btn btn-outline-new btn-lg px-4 gap-3">Ingresar</button>
+                            </div>
+                         </form>
+                       <p class="small-xl pt-4 text-center">
+                  <a class="text-muted" href="#">
+                    <small>
+                 <span class="text-muted"> Regístrate </span>
+                    </small>
+                  </a>
+                                  </p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
         </form>
-     </main>      
+     </main>
    </body>
+
+
+
 </html>
-
-
