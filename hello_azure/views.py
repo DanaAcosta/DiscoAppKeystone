@@ -60,10 +60,8 @@ def upload(request):
                     row = "".join(row)
                     row = row.replace(";", " ")
                     row = row.split()
-
-                    doc_ref = doc_ref.document(row[0]+row[1])
                     
-                    doc_ref.set({
+                    doc_ref.document(row[0]+row[1]).set({
                         u'name': row[0],
                         u'price': int(row[1]),
                     })
