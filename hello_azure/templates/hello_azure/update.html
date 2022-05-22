@@ -39,7 +39,7 @@
             <p class="fs-5">
               3. Selecciona la plantilla haciendo click aquí &#128071;</p>
             <p class="fs-5">
-              <form method="post" action="upload">
+              <form enctype="multipart/form-data" method="post" action="up">
                   {% csrf_token %}
                   <input type="file" class="form-control" accept=".csv" name = "filename" style="max-width: 287px;"><br>
                 <p class="fs-5">

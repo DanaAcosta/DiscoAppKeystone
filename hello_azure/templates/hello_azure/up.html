@@ -39,14 +39,20 @@
             <p class="fs-5">
               3. Selecciona la plantilla haciendo click aquí &#128071;</p>
             <p class="fs-5">
-              <form method="post" action="up">
+              <form enctype="multipart/form-data"  method="post" action="upload">
                   {% csrf_token %}
-                  <input type="file" class="form-control" accept=".csv" name = "filename" style="max-width: 287px;"><br>
-                <p class="fs-5">
-                  Finalmente, haz click en subir archivos &#128073; 
+                  <!--<input type="file" class="form-control" accept=".csv" name = "filename" style="max-width: 287px;">-->
+                  <input type="hidden" name="csrfmiddlewaretoken" value="STQGqHQaVieDhYdEeaiJ5zVegfobsomY3jMMkqNdKfpD8Vuw3RdAogJAIx1ki480">
+                  <tr>
+                  <td>
+                    <input type="file" name="file_name" required id="id_file_name" class="form-control" accept=".csv">
+                  </td>
+                </tr>
                   <button type="submit" class="btn btn-outline-light btn-sm px-4 gap-3">Subir archivos</button>
-                </p>
               </form>
+              <!--<p class="fs-5">-->
+                &#128070; Finalmente, haz click en subir archivos
+              <!--</p>-->
             </p>
           </div>
         </div>

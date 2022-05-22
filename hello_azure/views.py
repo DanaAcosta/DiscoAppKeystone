@@ -7,11 +7,16 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 
+import csv
+from .forms import CsvModelForm
+from .models import Csv
+
+
 # Use the application default credentials
 # Creamos la conexión a la base de datos si no existe
 if not firebase_admin._apps:
     # Es necesario configurar cred con la ruta del archivo json
-    cred = credentials.Certificate("C:\Apps\DiscoAppKeystone\hello_azure\discoapp-e8634-firebase-adminsdk-i64d2-fbcdf05c38.json")
+    cred = credentials.Certificate("C:\Apps\discoapp-e8634-firebase-adminsdk-i64d2-9fe03f1fb7.json")
     # Inicializamos app
     firebase_admin.initialize_app(cred)
 
@@ -31,20 +36,59 @@ def up(request): #Esto es lo que agregamos
     print('Request for upload page received')
     return render(request, 'hello_azure/up.html')
 
-@csrf_exempt
+def home(request):
+    print('Request for home page received')
+    return render(request, 'hello_azure/hello.html')
+
+#@csrf_exempt
+# Para cargar los datos en la base de datos
 def upload(request):
-    if request.method == 'POST':
-        name = request.POST.get('filename')
-        
-        if name is None or name == '':
-            print("File not found")
-            return redirect('update')
-        else:
-            print("Filename found=%s" % name)
-            context = {'filename': name }
-            return render(request, 'hello_azure/hello.html', context)
-    else:
-        return redirect('update')
+    form = CsvModelForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        form = CsvModelForm()
+        obj = Csv.objects.get(activated = False)
+        doc_ref = db.collection(u'products')
+
+        with open(obj.file_name.path, 'r') as f:
+            reader = csv.reader(f)
+
+            for i, row in enumerate(reader):
+                if i == 0:
+                    pass
+                else:
+                    row = "".join(row)
+                    row = row.replace(";", " ")
+                    row = row.split()
+
+                    doc_ref = doc_ref.document(row[0]+row[1])
+                    
+                    doc_ref.set({
+                        u'name': row[0],
+                        u'price': int(row[1]),
+                    })
+
+            obj.activated = True
+            obj.save()
+
+        return render(request, 'hello_azure/succesful.html', {'form': form})
+    return render(request, 'hello_azure/up.html', {'form': form})
+    #if request.method == 'POST':
+    #    name = request.POST.get('filename')
+    #    
+    #    if name is None or name == '':
+    #        print("File not found")
+    #        return redirect('up')
+    #    else:
+    #        #form = request.FILES['filename']
+    #        #file = csv.DictReader(form)
+    #        print("Filename found=%s" % name)
+    #        context = {'filename': name }
+    #        #for row in file:
+    #        #    print(row)
+    #        return render(request, 'hello_azure/hello.html', context)
+    #else:
+    #    return redirect('up')
 
 @csrf_exempt
 def hello(request):
