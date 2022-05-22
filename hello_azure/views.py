@@ -73,22 +73,6 @@ def upload(request):
 
         return render(request, 'hello_azure/succesful.html', {'form': form})
     return render(request, 'hello_azure/up.html', {'form': form})
-    #if request.method == 'POST':
-    #    name = request.POST.get('filename')
-    #    
-    #    if name is None or name == '':
-    #        print("File not found")
-    #        return redirect('up')
-    #    else:
-    #        #form = request.FILES['filename']
-    #        #file = csv.DictReader(form)
-    #        print("Filename found=%s" % name)
-    #        context = {'filename': name }
-    #        #for row in file:
-    #        #    print(row)
-    #        return render(request, 'hello_azure/hello.html', context)
-    #else:
-    #    return redirect('up')
 
 @csrf_exempt
 def hello(request):
