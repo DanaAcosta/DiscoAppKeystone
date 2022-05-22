@@ -36,6 +36,10 @@ def up(request): #Esto es lo que agregamos
     print('Request for upload page received')
     return render(request, 'hello_azure/up.html')
 
+def verify(request):
+    print('Request for verify page received')
+    return render(request, 'hello_azure/verify.html')
+
 def home(request):
     print('Request for home page received')
     return render(request, 'hello_azure/hello.html')
@@ -60,14 +64,29 @@ def upload(request):
                     row = "".join(row)
                     row = row.replace(";", " ")
                     row = row.split()
-                    
-                    doc_ref.document(row[0]+row[1]).set({
-                        u'name': row[0],
-                        u'price': int(row[1]),
-                    })
+                    print(row)
+                    if not row:
+                        pass
+                    else:
+                        try:
+                            int(row[1])
+                        except ValueError:
+                            print("Price is no numeric")
+                            obj.delete()
+                            return render(request, 'hello_azure/opss.html')
+                        except IndexError:
+                            print("Product or Price does not exist")
+                            obj.delete()
+                            return render(request, 'hello_azure/opss.html')
+                        else:
+                            doc_ref.document(row[0]+row[1]).set({
+                                u'name': row[0],
+                                u'price': int(row[1]),
+                            })
 
             obj.activated = True
             obj.save()
+            obj.delete()
 
         return render(request, 'hello_azure/succesful.html', {'form': form})
     return render(request, 'hello_azure/up.html', {'form': form})
@@ -107,3 +126,65 @@ def hello(request):
             return redirect('index')
     else:
         return redirect('index')
+
+@csrf_exempt
+def add(request):
+    if request.method == 'POST':
+        product_name = request.POST.get('product_name1')
+        product_price = request.POST.get('product_price1')
+        
+        if product_name is None or product_name == '' or product_price is None or product_price == '':
+            print("Request to add received with no name or blank name -- redirecting")
+            return redirect('update')
+        else:
+            print("Request to add received with name=%s" % product_name)
+            doc_ref = db.collection(u'products')
+            doc_ref.document(product_name+str(product_price)).set({
+                                u'name': product_name,
+                                u'price': product_price,
+                            })
+            return render(request, 'hello_azure/succesful.html')
+
+@csrf_exempt
+def modify(request):
+    if request.method == 'POST':
+        product_name = request.POST.get('product_name2')
+        product_price = request.POST.get('product_price2')
+        
+        if product_name is None or product_name == '' or product_price is None or product_price == '':
+            print("Request to modify received with no name or blank name -- redirecting")
+            return redirect('update')
+        else:
+            print("Request to modify received with name=%s" % product_name)
+            doc_ref = db.collection(u'products')
+            docs = doc_ref.stream()
+
+            for doc in docs:
+                dictionary = doc.to_dict()
+                p_name = dictionary.get("name")
+                if p_name == product_name:
+                    doc_ref.document(doc.id).set({
+                                        u'name': product_name,
+                                        u'price': product_price,
+                                    })
+            return render(request, 'hello_azure/succesful.html')
+
+@csrf_exempt
+def delete(request):
+    if request.method == 'POST':
+        product_name = request.POST.get('product_name3')
+        
+        if product_name is None or product_name == '':
+            print("Request to delete received with no name or blank name -- redirecting")
+            return redirect('update')
+        else:
+            print("Request to delete received with name=%s" % product_name)
+            doc_ref = db.collection(u'products')
+            docs = doc_ref.stream()
+
+            for doc in docs:
+                dictionary = doc.to_dict()
+                p_name = dictionary.get("name")
+                if p_name == product_name:
+                    doc_ref.document(doc.id).delete()
+            return render(request, 'hello_azure/succesful.html')

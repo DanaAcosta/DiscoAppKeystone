@@ -9,7 +9,7 @@
 </head>
 
 <html>
-   <body class = 'bg-dark text-white'>
+   <body class = 'bg-dark text-white' style="font-family: cursive;">
      <main>
         <div class="px-4 py-5 my-2 text-center">
             <h1 class="display-6 fw-bold">En esta página podrás subir, verificar y actualizar datos. </h1>
@@ -17,40 +17,25 @@
               A continuación, encontraras una explicación de cada uno.
             </p>
         <!-- Descripciones y botones -->
-        <div style='height: 550px; width: 320px; border: 0px; float: left; margin: 3em 0em 3em 10em; text-align: left;'>
+        <div style='height: 550px; width: 320px; border: 0px; float: left; margin: 3em 0em 3em 10em; text-align: justify;'>
           <p class="fs-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Hendrerit gravida rutrum quisque non tellus orci ac auctor augue. 
-            Accumsan lacus vel facilisis volutpat. 
-            Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. 
-            Amet purus gravida quis blandit turpis. 
-          </p>
-          <a href="{% url 'up' %}" class="btn btn-outline-new btn-lg px-4 gap-1">Subir Datos</a>
+            Descripción.
+          </p><br>
+          <div style="text-align: center;"><a href="{% url 'up' %}" class="btn btn-outline-new btn-lg px-4 gap-1">Subir Datos</a></div>
         </div>
 
-        <div style='height: 550px; width: 320px; border: 0px; float: left; text-align: center;margin: 3em 0em 3em 7em'>
+        <div style='height: 550px; width: 320px; border: 0px; float: left; text-align: justify;margin: 3em 0em 3em 7em'>
           <p class="fs-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Hendrerit gravida rutrum quisque non tellus orci ac auctor augue. 
-            Accumsan lacus vel facilisis volutpat. 
-            Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. 
-            Amet purus gravida quis blandit turpis. 
-          </p>
-          <a href="{% url 'index' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Verificar Datos</a>
+            Descripción.
+          </p><br>
+          <div style="text-align: center;"><a href="{% url 'verify' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Verificar Datos</a></div>
         </div>
 
-        <div style='height: 550px; width: 320px; border: 0px; float: left;margin: 3em 0em 3em 7em; text-align: right;'>
+        <div style='height: 550px; width: 320px; border: 0px; float: left;margin: 3em 0em 3em 7em; text-align: justify;'>
           <p class="fs-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Hendrerit gravida rutrum quisque non tellus orci ac auctor augue. 
-            Accumsan lacus vel facilisis volutpat. 
-            Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. 
-            Amet purus gravida quis blandit turpis. 
-         </p>
-          <a href="{% url 'update' %}" class="btn btn-outline-new btn-lg px-4 gap-3">Actualizar Datos</a>
+            Descripción.
+         </p><br>
+         <div style="text-align: center;"><a href="{% url 'update' %}" class="btn btn-outline-new btn-lg px-4 gap-3">Actualizar Datos</a></div>
         </div>
         </div>
      </main>      

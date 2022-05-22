@@ -9,45 +9,106 @@
 </head>
 
 <html>
+
+  <style>
+
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      font-family: cursive;
+      color: #fdfdfe;
+     }
+
+     h2 {
+      text-align: center;
+      font-size: 25px;
+      font-family: cursive;
+      color: #a4a4f6;
+     }
+
+     h3 {
+      text-align: center;
+      font-size: 20px;
+      font-family: cursive;
+      color: #fdfdfe;
+     }
+
+     h4 {
+      text-align: justify;
+      font-size: 20px;
+      font-family: cursive;
+      color: #fdfdfe;
+     }
+
+     h5 {
+      text-align: Left;
+      font-size: 17px;
+      font-family: cursive;
+      color: #c9c9ee;
+     }
+
+  </style>
+
   <body class = 'bg-dark text-white'>
      <main>
         <div class="px-4 py-3 my-2 text-center">
-            <h1 class="display-6 fw-bold">Actualizar datos. </h1>
-            <p class="fs-5">
-              En esta página puedes actualizar grandes volúmenes de datos en tres sencillos pasos &#128516;. Sigue las instrucciones:
-            </p>
+            <h1>Actualizar datos. </h1><br>
+            <h3>
+              En esta página puedes actualizar los datos de tu aplicación de acuerdo con la acción que deseas realizar.
+            </h3>
           <!-- Instrucciones -->
-          <!-- Paso 1 -->
-          <div style='height: 230px; width: 320px; border: 0px; float: left; margin: 5em 0em 3em 10em; text-align: left;'>
-            <p class="fs-5">
-              1. Descarga la plantilla haciendo click a continuación: 
-            </p>
-            <a href="static/Plantilla.csv" class="btn btn-outline-light btn-lg px-5 gap-3" download="plantilla.csv">Descargar plantilla excel</a>
-          </div>
-          <!-- Paso 2 -->
-          <div style='height: 230px; width: 320px; border: 0px; float: left; text-align: left ;margin: 5em 0em 3em 7em'>
-            <p class="fs-5">
-              2. Abre la plantilla e ingresa los datos que te solicita.
-              <ul style="font-size:15px">
-                <li>Producto: nombre del producto.</li>
-                <li>Precio: Valor del producto asociado.</li>
-              </ul>
-            </p><p class="fs-5">Luego, guarda la plantilla con el nombre que quieras en formato .csv</p>
-          </div>
-          <!-- Paso 3 -->
-          <div style='height: 230px; width: 320px; border: 0px; float: left;margin: 5em 0em 3em 7em; text-align: left;'>
-            <p class="fs-5">
-              3. Selecciona la plantilla haciendo click aquí &#128071;</p>
-            <p class="fs-5">
-              <form enctype="multipart/form-data" method="post" action="up">
-                  {% csrf_token %}
-                  <input type="file" class="form-control" accept=".csv" name = "filename" style="max-width: 287px;"><br>
-                <p class="fs-5">
-                  Finalmente, haz click en subir archivos &#128073; 
-                  <button type="submit" class="btn btn-outline-light btn-sm px-4 gap-3">Subir archivos</button>
-                </p>
+          <!-- Opción 1 -->
+          <div style='height: 520px; width: 340px; border: 0px; float: left; margin: 5em 0em 0em 7em; text-align: left;'>
+            <h2>
+              Opción 1: 
+            </h2>
+            <h3>Agregar nuevos datos</h3><br>
+            <h4>Ingresa a continuación el nombre y el precio del producto en los espacios correspondientes. Luego haz click en agregar.</h4><br>
+            <h3>
+              <form method="post" action="add">
+                {% csrf_token %}
+                <h5>Nombre del producto:</h5>
+                <input type="text" class="form-control" id = "product_name1" name = "product_name1"><br>
+                <h5>Precio:</h5>
+                <input type="number" class="form-control" id = "product_price1" name = "product_price1"><br>
+                <button type="submit" class="btn btn-outline-light btn-lg px-4 gap-3">Agregar</button>
               </form>
-            </p>
+            </h3>
+          </div>
+          <!-- Opción 2 -->
+          <div style='height: 520px; width: 340px; border: 0px; float: left; text-align: left ;margin: 5em 7em 0em 7em'>
+            <h2>
+              Opción 2: 
+            </h2>
+            <h3>Modificar datos</h3><br>
+            <h4>Escribe el nombre y el nuevo precio del producto que quieres modificar. Después, presiona el botón modificar.</h4><br>
+            <h3>
+              <form method="post" action="modify">
+                {% csrf_token %}
+                <h5>Nombre del producto:</h5>
+                <input type="text" class="form-control" id = "product_name2" name = "product_name2"><br>
+                <h5>Precio:</h5>
+                <input type="number" class="form-control" id = "product_price2" name = "product_price2"><br>
+                <button type="submit" class="btn btn-outline-light btn-lg px-4 gap-3">Modificar</button>
+              </form>
+            </h3>
+          </div>
+          <!-- Opción 3 -->
+          <div style='height: 520px; width: 340px; border: 0px; float: left;margin: 5em 7em 0em 0em; text-align: left;'>
+            <h2>
+              Opción 3: 
+            </h2>
+            <h3>Eliminar datos</h3><br>
+            <h4>Ingresa el nombre del producto que quieres borrar de la base de datos. Al final, haz click en el botón eliminar.</h4><br>
+            <h3>
+              <form method="post" action="delete">
+                {% csrf_token %}
+                <h5>Nombre del producto:</h5>
+                <input type="text" class="form-control" id = "product_name3" name = "product_name3"><br>
+                <button type="submit" class="btn btn-outline-light btn-lg px-4 gap-3">Eliminar</button>
+              </form>
+            </h3>
           </div>
         </div>
       </main>      

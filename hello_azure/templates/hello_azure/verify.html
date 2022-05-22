@@ -1,32 +1,20 @@
 {% load static %}
 <!doctype html>
 <head>
-    <title>Hello Azure - Python Quickstart</title>
+  <img src="static/images/banner.png" width="1520" height="250">
+    <title>Bienvenido</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <link rel="icon"href="{% static 'favicon.ico' %}">
+    <link rel="icon"href="{% static 'Logo_DiscoApp_ft.png' %}">
+    
 </head>
-<html>
-   <body>
-     <main>
-        <div class="px-4 py-3 my-2 text-center">
-            <img class="d-block mx-auto mb-4" src="{% static 'images/azure-icon.svg' %}" alt="Azure Logo" width="192" height="192"/>
-            <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-            <h1 class="display-6 fw-bold text-primary">Welcome to Azure</h1>            
-          </div>
-        <form method="post" action="hello">
-            {% csrf_token %}
-            <div class="col-md-6 mx-auto text-center">
-                <label for="name" class="form-label fw-bold fs-5">Dme tu nombre?</label>
 
-                <!-- <p class="lead mb-2">Could you please tell me your name?</p> -->
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
-                    <input type="text" class="form-control" id="name" name="name" style="max-width: 256px;">
-                  </div>            
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
-                  <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Say Hello</button>
-                </div>            
-            </div>
-        </form>
+<html>
+   <body class = 'bg-dark text-white'>
+     <main>
+        <div style = 'margin: 7em 10em 20em 10em; text-align: center;'>
+            <h1>Proximamente... </h1><br><br><br>
+            <a href="{% url 'home' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Volver a inicio</a>
+        </div>
      </main>      
    </body>
 </html>

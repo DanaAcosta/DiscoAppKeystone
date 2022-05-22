@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<head>
+  <img src="static/images/banner.png" width="1520" height="250">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="icon"href="{% static 'Logo_DiscoApp_ft.png' %}">
+    
+</head>
+
+<html>
+    <style>
+
+
+        h1 {
+          text-align: center;
+          font-size: 40px;
+          font-family: cursive;
+          color: #fdfdfe;
+         }
+
+         h2 {
+          text-align: justify;
+          font-size: 25px;
+          font-family: cursive;
+          color: #fdfdfe;
+         }
+
+         h3 {
+          text-align: justify;
+          font-size: 20px;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          color: #fdfdfe;
+         }
+   
+   
+    </style>
+
+   <body class = 'bg-dark'>
+     <main>
+
+        <div style='height: 550px; width: 400px; border: 0px; float: left; margin: 1em 2em 20em 10em; text-align: center;'>
+            <img src="static/images/opss.png" width="310" height="250"><br><br><br>
+            <h1>¡Oppss! Lo sentimos, Al parecer tuvimos un error al momento de cargar los datos. </h1><br>
+        </div>
+
+        <div style='height: 550px; width: 620px; border: 0px; float: left; margin: 2em 5em 20em 10em;text-align: center;'>
+            <h2>Esto puede deberse a multiples razones. Te recomendamos verificar en tu archivo .csv lo siguiente:</h2><br>
+            <h3>
+                <li>Las columnas del archivo se encuentran en el orden de la plantilla (producto, precio).</li>
+                <li>Todas las casillas tienen producto y precio.</li>
+                <li>El precio está indicado en números.</li>
+            </h3><br>
+            <h2>¡Si tu archivo ya tiene estas características intenta subirlo nuevamente!.</h2><br>
+            <h2>Si el error presiste, contáctate con nosotros para solucionarlo</h2><br>
+            <a href="{% url 'up' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Regresar</a>
+        </div>
+
+     </main>      
+   </body>
+</html>
