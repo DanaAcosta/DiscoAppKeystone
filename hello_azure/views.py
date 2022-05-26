@@ -11,6 +11,19 @@ import csv
 from .forms import CsvModelForm
 from .models import Csv
 
+import pyrebase
+config= {
+  "apiKey": "AIzaSyC4Wop3qYzyJJyR6nES3V3_4ouh8XIxcFU",
+  "authDomain": "discoapp-e8634.firebaseapp.com",
+  "databaseURL": "https://discoapp-e8634-default-rtdb.firebaseio.com",
+  "projectId": "discoapp-e8634",
+  "storageBucket": "discoapp-e8634.appspot.com",
+  "messagingSenderId": "1044386622635",
+  "appId": "1:1044386622635:web:b52bd41e52dc3147289bee",
+}
+firebase=pyrebase.initialize_app(config)
+authe = firebase.auth()
+database=firebase.database()
 
 # Use the application default credentials
 # Creamos la conexión a la base de datos si no existe
@@ -37,8 +50,8 @@ def up(request): #Esto es lo que agregamos
     return render(request, 'hello_azure/up.html')
 
 def verify(request):
-    print('Request for verify page received')
-    return render(request, 'hello_azure/verify.html')
+    day = database.get().val()
+    return render(request, 'hello_azure/verify.html', {"prod":list(day.items())})
 
 def home(request):
     print('Request for home page received')
@@ -187,4 +200,5 @@ def delete(request):
                 p_name = dictionary.get("name")
                 if p_name == product_name:
                     doc_ref.document(doc.id).delete()
-            return render(request, 'hello_azure/succesful.html')
+                    return render(request, 'hello_azure/succesful.html')
+            return render(request, 'hello_azure/notfound.html')

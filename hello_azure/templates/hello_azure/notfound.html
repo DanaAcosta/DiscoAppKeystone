@@ -1,0 +1,20 @@
+{% load static %}
+<!doctype html>
+<head>
+  <img src="static/images/banner.png" width="1520" height="250">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="icon"href="{% static 'Logo_DiscoApp_ft.png' %}">
+    
+</head>
+
+<html>
+   <body class = 'bg-dark text-white'>
+     <main>
+        <div style = 'margin: 7em 10em 20em 10em; text-align: center;'>
+            <h1>Producto no encontrado </h1><br><br><br>
+            <a href="{% url 'update' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Volver</a>
+        </div>
+     </main>      
+   </body>
+</html>

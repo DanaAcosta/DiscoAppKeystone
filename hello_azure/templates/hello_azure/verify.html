@@ -9,12 +9,24 @@
 </head>
 
 <html>
-   <body class = 'bg-dark text-white'>
-     <main>
-        <div style = 'margin: 7em 10em 20em 10em; text-align: center;'>
-            <h1>Proximamente... </h1><br><br><br>
-            <a href="{% url 'home' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Volver a inicio</a>
+  <body class = 'bg-dark text-white'>
+    <a href="{% url 'home' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Volver a inicio</a>    
+      <main>
+        <div style="text-align:center;">
+        <table style="margin: 0 auto;">
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+          </tr>
+          {%for p in prod%}
+          <tr>
+            <td>{{p.0}}
+            </td>
+            <td>{{p.1}}</td>
+          </tr>
+          {%endfor%}
+        </table>
         </div>
-     </main>      
-   </body>
+      </main>  
+  </body>
 </html>

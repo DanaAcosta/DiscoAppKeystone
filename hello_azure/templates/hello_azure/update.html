@@ -51,6 +51,7 @@
   </style>
 
   <body class = 'bg-dark text-white'>
+    <a href="{% url 'home' %}" class="btn btn-outline-new btn-lg px-4 gap-2">Volver a inicio</a>      
      <main>
         <div class="px-4 py-3 my-2 text-center">
             <h1>Actualizar datos. </h1><br>
@@ -69,9 +70,9 @@
               <form method="post" action="add">
                 {% csrf_token %}
                 <h5>Nombre del producto:</h5>
-                <input type="text" class="form-control" id = "product_name1" name = "product_name1"><br>
+                <input type="text" class="form-control" id = "product_name1" name = "product_name1" required=""><br>
                 <h5>Precio:</h5>
-                <input type="number" class="form-control" id = "product_price1" name = "product_price1"><br>
+                <input type="number" class="form-control" id = "product_price1" name = "product_price1" required="" ><br>
                 <button type="submit" class="btn btn-outline-light btn-lg px-4 gap-3">Agregar</button>
               </form>
             </h3>
@@ -87,9 +88,9 @@
               <form method="post" action="modify">
                 {% csrf_token %}
                 <h5>Nombre del producto:</h5>
-                <input type="text" class="form-control" id = "product_name2" name = "product_name2"><br>
+                <input type="text" class="form-control" id = "product_name2" name = "product_name2" required=""><br>
                 <h5>Precio:</h5>
-                <input type="number" class="form-control" id = "product_price2" name = "product_price2"><br>
+                <input type="number" class="form-control" id = "product_price2" name = "product_price2" required=""><br>
                 <button type="submit" class="btn btn-outline-light btn-lg px-4 gap-3">Modificar</button>
               </form>
             </h3>
@@ -105,7 +106,7 @@
               <form method="post" action="delete">
                 {% csrf_token %}
                 <h5>Nombre del producto:</h5>
-                <input type="text" class="form-control" id = "product_name3" name = "product_name3"><br>
+                <input type="text" class="form-control" id = "product_name3" name = "product_name3" required=""><br>
                 <button type="submit" class="btn btn-outline-light btn-lg px-4 gap-3">Eliminar</button>
               </form>
             </h3>
